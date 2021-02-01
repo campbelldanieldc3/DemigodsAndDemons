@@ -1,0 +1,9 @@
+{
+"type": "minecraft:smelting",
+"ingredient": {
+"item": "demigodsanddemons:azurite_ore"
+},
+"result": "demigodsanddemons:azurite",
+"experience": 0.7,
+"cookingtime": 200
+}

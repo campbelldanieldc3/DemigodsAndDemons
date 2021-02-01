@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "demigodsanddemons:blocks/umbral_iron_block"
+  }
+}
