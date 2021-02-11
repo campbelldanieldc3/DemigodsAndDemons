@@ -56,5 +56,10 @@ public class RegistryHandler {
 
                 ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties().group(itemGroup)));
         }
+        public static void generateOres(){
+
+
+
+        }
 
 }
