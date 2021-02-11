@@ -1,10 +1,12 @@
 package com.example.demigodsanddemons;
 
 import com.example.demigodsanddemons.registry.RegistryHandler;
+import com.example.demigodsanddemons.world.OreGeneration;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.common.Mod;
@@ -37,8 +39,10 @@ public class DemigodsAndDemons
         // Register the doClientStuff method for modloading
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
 
+        MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, OreGeneration :: generateOres);
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
+
 
         RegistryHandler.init();
     }

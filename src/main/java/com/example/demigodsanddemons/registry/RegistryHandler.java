@@ -14,13 +14,19 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
+import java.util.HashMap;
+
 public class RegistryHandler {
 
         public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, DemigodsAndDemons.MODID);
         public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, DemigodsAndDemons.MODID);
-        public static final Material AZURITE = (new Material.Builder(MaterialColor.PURPLE)).build();
+
+        public static final HashMap<String, RegistryObject> REGISTRY_HASH_MAP = new HashMap<>();
+
 
         public static void init(){
+
+
                addBlock("azurite_ore", Material.IRON, 7.0f, 6.0f, SoundType.STONE, 2, ToolType.PICKAXE, ItemGroup.BUILDING_BLOCKS);
                addBlock("azurite_block", Material.IRON, 8.0f, 6.0f, SoundType.METAL, 2, ToolType.PICKAXE, ItemGroup.BUILDING_BLOCKS);
                addBlock("umbral_iron_block", Material.IRON, 9.0f, 7.0f, SoundType.METAL, 3, ToolType.PICKAXE, ItemGroup.BUILDING_BLOCKS);
@@ -33,16 +39,16 @@ public class RegistryHandler {
 
         }
 
-        public static RegistryObject<Item> addItem(String name, ItemGroup itemGroup){
+        public static void addItem(String name, ItemGroup itemGroup){
 
-                return ITEMS.register(name, () -> new Item(new Item.Properties().group(itemGroup)));
+                REGISTRY_HASH_MAP.put(name, ITEMS.register(name, () -> new Item(new Item.Properties().group(itemGroup))));
 
 
         }
 
-        public static RegistryObject<Item> addSwordItem(String name , IItemTier iItemTier, int attackDmg, float attackSpd){
+        public static void addSwordItem(String name , IItemTier iItemTier, int attackDmg, float attackSpd){
 
-            return ITEMS.register(name, () -> new SwordItem(iItemTier, attackDmg, attackSpd, new Item.Properties().group(ItemGroup.COMBAT)));
+            REGISTRY_HASH_MAP.put(name, ITEMS.register(name, () -> new SwordItem(iItemTier, attackDmg, attackSpd, new Item.Properties().group(ItemGroup.COMBAT))));
 
         }
 
@@ -53,13 +59,9 @@ public class RegistryHandler {
                         .hardnessAndResistance(hardness, resistance)
                         .sound(soundType)
                         .harvestTool(toolType).harvestLevel(level)));
-
-                ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties().group(itemGroup)));
+                REGISTRY_HASH_MAP.put(name, block);
+                REGISTRY_HASH_MAP.put(name + "_item", ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties().group(itemGroup))));
         }
-        public static void generateOres(){
 
-
-
-        }
 
 }
