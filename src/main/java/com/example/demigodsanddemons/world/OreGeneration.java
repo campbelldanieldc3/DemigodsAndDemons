@@ -21,7 +21,7 @@ public class OreGeneration {
 
         if(!biomeLoadingEvent.getCategory().equals(Biome.Category.NETHER) || !biomeLoadingEvent.getCategory().equals(Biome.Category.THEEND)){
 
-            GenerateOre(biomeLoadingEvent, OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD, RegistryHandler.REGISTRY_HASH_MAP.get("azurite_ore"), 5, 10, 0, 40, 10);
+            GenerateOre(biomeLoadingEvent, OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD, RegistryHandler.REGISTRY_HASH_MAP.get("azurite_ore"), 5, 10, 0, 40, 1);
 
         }
 

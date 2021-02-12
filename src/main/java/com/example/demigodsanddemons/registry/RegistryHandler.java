@@ -32,6 +32,8 @@ public class RegistryHandler {
                addBlock("umbral_iron_block", Material.IRON, 9.0f, 7.0f, SoundType.METAL, 3, ToolType.PICKAXE, ItemGroup.BUILDING_BLOCKS);
                addItem("azurite",ItemGroup.MATERIALS);
                addItem("umbral_iron_ingot", ItemGroup.MATERIALS);
+               addFood("ambrosia", ItemGroup.FOOD, 10, .5f);
+
 
 
                ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
@@ -42,7 +44,6 @@ public class RegistryHandler {
         public static void addItem(String name, ItemGroup itemGroup){
 
                 REGISTRY_HASH_MAP.put(name, ITEMS.register(name, () -> new Item(new Item.Properties().group(itemGroup))));
-
 
         }
 
@@ -61,6 +62,16 @@ public class RegistryHandler {
                         .harvestTool(toolType).harvestLevel(level)));
                 REGISTRY_HASH_MAP.put(name, block);
                 REGISTRY_HASH_MAP.put(name + "_item", ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties().group(itemGroup))));
+        }
+
+        public static void addFood(String name, ItemGroup itemGroup, int hunger, float saturation){
+
+            ITEMS.register(name, () -> new Item(
+                    new Item.Properties()
+                            .group(itemGroup)
+                            .food(new Food.Builder()
+                                    .hunger(hunger)
+                                    .saturation(saturation).build())));
         }
 
 
