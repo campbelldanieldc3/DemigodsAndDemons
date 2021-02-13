@@ -4,6 +4,7 @@ import com.example.demigodsanddemons.registry.RegistryHandler;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.BiomeMaker;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.Feature;
@@ -11,6 +12,8 @@ import net.minecraft.world.gen.feature.OreFeatureConfig;
 import net.minecraft.world.gen.feature.template.RuleTest;
 import net.minecraft.world.gen.placement.Placement;
 import net.minecraft.world.gen.placement.TopSolidRangeConfig;
+import net.minecraftforge.common.BiomeDictionary;
+import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.fml.RegistryObject;
 
@@ -30,6 +33,7 @@ public class OreGeneration {
 
         biomeLoadingEvent.getGeneration().withFeature(GenerationStage.Decoration.UNDERGROUND_ORES,
                 Feature.ORE.withConfiguration(new OreFeatureConfig(filler, state.get().getDefaultState(), veinsize)).withPlacement(Placement.RANGE.configure(new TopSolidRangeConfig(bottomRange, offset, topRange))).square().func_242731_b(amount));
+
 
     }
 
