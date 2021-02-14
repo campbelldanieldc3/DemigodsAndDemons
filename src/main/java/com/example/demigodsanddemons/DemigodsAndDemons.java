@@ -1,5 +1,6 @@
 package com.example.demigodsanddemons;
 
+import com.example.demigodsanddemons.potion.DDEffects;
 import com.example.demigodsanddemons.registry.RegistryHandler;
 import com.example.demigodsanddemons.world.OreGeneration;
 import net.minecraft.block.Block;
@@ -45,6 +46,7 @@ public class DemigodsAndDemons
 
 
         RegistryHandler.init();
+        DDEffects.init();
     }
 
     private void setup(final FMLCommonSetupEvent event)

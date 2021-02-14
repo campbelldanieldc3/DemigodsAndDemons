@@ -2,6 +2,7 @@ package com.example.demigodsanddemons.registry;
 
 
 import com.example.demigodsanddemons.DemigodsAndDemons;
+import com.example.demigodsanddemons.potion.DDEffects;
 import com.example.demigodsanddemons.world.DDConfiguredSurfaceBuilders;
 import com.example.demigodsanddemons.world.ModBiome;
 import net.minecraft.block.AbstractBlock;
@@ -10,6 +11,8 @@ import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.data.BiomeProvider;
 import net.minecraft.item.*;
+import net.minecraft.potion.Effect;
+import net.minecraft.potion.EffectInstance;
 import net.minecraft.util.RegistryKey;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
@@ -40,6 +43,7 @@ public class RegistryHandler {
         public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, DemigodsAndDemons.MODID);
         public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, DemigodsAndDemons.MODID);
         public static final DeferredRegister<Biome> BIOMES = DeferredRegister.create(ForgeRegistries.BIOMES, DemigodsAndDemons.MODID);
+        public static final DeferredRegister<Effect> EFFECTS = DeferredRegister.create(ForgeRegistries.POTIONS, DemigodsAndDemons.MODID);
 
         public static final HashMap<String, RegistryObject> REGISTRY_HASH_MAP = new HashMap<>();
 
@@ -94,7 +98,14 @@ public class RegistryHandler {
                             .group(itemGroup)
                             .food(new Food.Builder()
                                     .hunger(hunger)
-                                    .saturation(saturation).build()))));
+                                    .effect(() -> new EffectInstance(DDEffects.MORTALITY.get()), 1)
+                                    .saturation(saturation)
+                                    .build()))));
+        }
+        public static void addPotionEffect(){
+
+
+
         }
 
         public static void addBiome(String name){
