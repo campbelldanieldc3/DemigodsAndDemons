@@ -23,6 +23,7 @@ import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.common.ToolType;
 import net.minecraftforge.common.world.BiomeGenerationSettingsBuilder;
+import net.minecraftforge.common.world.MobSpawnInfoBuilder;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.common.Mod;
@@ -101,8 +102,13 @@ public class RegistryHandler {
             //RegistryKey<ConfiguredSurfaceBuilder<?>> surfaceBuilderRegistryKey = RegistryKey.getOrCreateKey(Registry.CONFIGURED_SURFACE_BUILDER_KEY, new ResourceLocation(DemigodsAndDemons.MODID, name));
 
             BiomeGenerationSettings.Builder generationSettingsBuilder = new BiomeGenerationSettings.Builder().withSurfaceBuilder(WorldGenRegistries.CONFIGURED_SURFACE_BUILDER.getOrThrow(DDConfiguredSurfaceBuilders.ELDERWOOD_FOREST));
-            DefaultBiomeFeatures.withTallBirches(generationSettingsBuilder);
+
             DefaultBiomeFeatures.withForestGrass(generationSettingsBuilder);
+            DefaultBiomeFeatures.withCavesAndCanyons(generationSettingsBuilder);
+            DefaultBiomeFeatures.withOverworldOres(generationSettingsBuilder);
+            DefaultBiomeFeatures.withTallBirches(generationSettingsBuilder);
+
+
 
             Biome b = new Biome.Builder()
                     .withGenerationSettings(generationSettingsBuilder.build())
@@ -133,10 +139,10 @@ public class RegistryHandler {
             public static void biomeSetup(FMLCommonSetupEvent event){
 
                 event.enqueueWork(() -> {
-
-                    RegistryKey<Biome> ELDERWOOD = RegistryKey.getOrCreateKey(ForgeRegistries.Keys.BIOMES, new ResourceLocation("elderwood_forest"));
-                    BiomeDictionary.addTypes(ELDERWOOD, BiomeDictionary.Type.FOREST);
-                    BiomeManager.addBiome(BiomeManager.BiomeType.COOL, new BiomeManager.BiomeEntry(ELDERWOOD, 20));
+                    RegistryKey<Biome> ELDERWOOD = RegistryKey.getOrCreateKey(ForgeRegistries.Keys.BIOMES, new ResourceLocation(DemigodsAndDemons.MODID, "elderwood_forest"));
+                    System.err.println(ELDERWOOD.getRegistryName() + " " + ELDERWOOD.getLocation());
+                    BiomeDictionary.addTypes(ELDERWOOD, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.MAGICAL);
+                    BiomeManager.addBiome(BiomeManager.BiomeType.COOL, new BiomeManager.BiomeEntry(ELDERWOOD, 10));
 
                 });
 
