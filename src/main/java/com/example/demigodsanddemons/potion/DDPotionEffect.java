@@ -1,10 +1,7 @@
 package com.example.demigodsanddemons.potion;
 
-import com.example.demigodsanddemons.DemigodsAndDemons;
 import net.minecraft.potion.Effect;
 import net.minecraft.potion.EffectType;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
 
 import java.awt.*;
 

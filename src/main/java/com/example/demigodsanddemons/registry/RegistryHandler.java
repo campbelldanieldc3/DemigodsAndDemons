@@ -18,10 +18,6 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.*;
-import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
-import net.minecraft.world.gen.surfacebuilders.ISurfaceBuilderConfig;
-import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
-import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.common.ToolType;
@@ -99,18 +95,11 @@ public class RegistryHandler {
                             .food(new Food.Builder()
                                     .hunger(hunger)
                                     .effect(() -> new EffectInstance(DDEffects.MORTALITY.get()), 1)
-                                    .saturation(saturation)
+                                    .saturation(saturation).setAlwaysEdible()
                                     .build()))));
-        }
-        public static void addPotionEffect(){
-
-
-
         }
 
         public static void addBiome(String name){
-
-            //RegistryKey<ConfiguredSurfaceBuilder<?>> surfaceBuilderRegistryKey = RegistryKey.getOrCreateKey(Registry.CONFIGURED_SURFACE_BUILDER_KEY, new ResourceLocation(DemigodsAndDemons.MODID, name));
 
             BiomeGenerationSettings.Builder generationSettingsBuilder = new BiomeGenerationSettings.Builder().withSurfaceBuilder(WorldGenRegistries.CONFIGURED_SURFACE_BUILDER.getOrThrow(DDConfiguredSurfaceBuilders.ELDERWOOD_FOREST));
 
