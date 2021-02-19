@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "demigodsanddemons:models/block/altar_model"
+    }
+  }
+}

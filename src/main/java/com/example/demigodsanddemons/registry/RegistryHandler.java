@@ -2,6 +2,7 @@ package com.example.demigodsanddemons.registry;
 
 
 import com.example.demigodsanddemons.DemigodsAndDemons;
+import com.example.demigodsanddemons.block.AltarBlock;
 import com.example.demigodsanddemons.potion.DDEffects;
 import com.example.demigodsanddemons.world.DDConfiguredSurfaceBuilders;
 import com.example.demigodsanddemons.world.ModBiome;
@@ -15,14 +16,11 @@ import net.minecraft.potion.Effect;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.util.RegistryKey;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.*;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.common.ToolType;
-import net.minecraftforge.common.world.BiomeGenerationSettingsBuilder;
-import net.minecraftforge.common.world.MobSpawnInfoBuilder;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.common.Mod;
@@ -52,11 +50,15 @@ public class RegistryHandler {
                addBlock("azurite_ore", Material.IRON, 7.0f, 6.0f, SoundType.STONE, 2, ToolType.PICKAXE, ItemGroup.BUILDING_BLOCKS);
                addBlock("azurite_block", Material.IRON, 8.0f, 6.0f, SoundType.METAL, 2, ToolType.PICKAXE, ItemGroup.BUILDING_BLOCKS);
                addBlock("umbral_iron_block", Material.IRON, 9.0f, 7.0f, SoundType.METAL, 3, ToolType.PICKAXE, ItemGroup.BUILDING_BLOCKS);
+               RegistryObject<Block> altar_block = BLOCKS.register("altar_block", AltarBlock::new);
+               ITEMS.register("altar_block",
+                       () -> new BlockItem(
+                               altar_block.get(), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)
+                       ));
                addItem("azurite",ItemGroup.MATERIALS);
                addItem("umbral_iron_ingot", ItemGroup.MATERIALS);
                addFood("ambrosia", ItemGroup.FOOD, 10, .5f);
                addBiome("elderwood_forest");
-
 
                ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
                BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
@@ -82,6 +84,7 @@ public class RegistryHandler {
                         .create(material)
                         .hardnessAndResistance(hardness, resistance)
                         .sound(soundType)
+                        .setRequiresTool()
                         .harvestTool(toolType).harvestLevel(level)));
                 REGISTRY_HASH_MAP.put(name, block);
                 REGISTRY_HASH_MAP.put(name + "_item", ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties().group(itemGroup))));

@@ -2,16 +2,12 @@ package com.example.demigodsanddemons.event;
 
 import com.example.demigodsanddemons.DemigodsAndDemons;
 import com.example.demigodsanddemons.potion.DDEffects;
-import net.minecraft.command.Commands;
-import net.minecraft.command.impl.SayCommand;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
 import net.minecraft.util.DamageSource;
 import net.minecraftforge.event.entity.living.PotionEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-
-import java.awt.event.ItemEvent;
 
 @Mod.EventBusSubscriber(modid = DemigodsAndDemons.MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class DDEventHandler {

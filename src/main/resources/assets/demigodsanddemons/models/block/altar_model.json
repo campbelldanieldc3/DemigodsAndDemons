@@ -1,0 +1,5 @@
+{
+	"loader": "forge:obj",
+	"model": "demigodsanddemons:models/block/altar_model.obj",
+	"flip-v": true
+}

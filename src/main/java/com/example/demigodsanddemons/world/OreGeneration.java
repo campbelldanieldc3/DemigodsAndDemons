@@ -28,6 +28,8 @@ public class OreGeneration {
 
         }
 
+        //if(biomeLoadingEvent.getCategory().equals(Biome.Category.NETHER))
+
     }
     private static void GenerateOre(BiomeLoadingEvent biomeLoadingEvent, RuleTest filler, RegistryObject<Block> state, int veinsize, int bottomRange, int offset, int topRange, int amount){
 
