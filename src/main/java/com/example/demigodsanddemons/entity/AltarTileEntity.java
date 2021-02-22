@@ -1,12 +1,9 @@
 package com.example.demigodsanddemons.entity;
 
-import com.example.demigodsanddemons.DemigodsAndDemons;
-import net.minecraft.block.Blocks;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraftforge.common.extensions.IForgeTileEntity;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
+
 
 public class AltarTileEntity extends TileEntity implements IForgeTileEntity {
 
@@ -15,6 +12,10 @@ public class AltarTileEntity extends TileEntity implements IForgeTileEntity {
 
         super(tileEntityTypeIn);
 
+    }
+
+    public AltarTileEntity(){
+        this(DDTileEntities.ANIMA_STORAGE_ENTITY.get());
     }
 
 

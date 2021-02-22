@@ -1,5 +1,6 @@
 package com.example.demigodsanddemons.world;
 
+import com.example.demigodsanddemons.block.DDBlocks;
 import com.example.demigodsanddemons.registry.RegistryHandler;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -24,7 +25,7 @@ public class OreGeneration {
 
         if(!biomeLoadingEvent.getCategory().equals(Biome.Category.NETHER) || !biomeLoadingEvent.getCategory().equals(Biome.Category.THEEND)){
 
-            GenerateOre(biomeLoadingEvent, OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD, RegistryHandler.REGISTRY_HASH_MAP.get("azurite_ore"), 5, 10, 0, 40, 1);
+            GenerateOre(biomeLoadingEvent, OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD, DDBlocks.AZURITE_ORE, 5, 10, 0, 40, 1);
 
         }
 

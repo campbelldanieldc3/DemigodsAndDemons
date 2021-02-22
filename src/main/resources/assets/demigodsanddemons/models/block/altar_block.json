@@ -1,0 +1,11 @@
+{
+	"parent": "block/cube_all",
+	"textures": {
+		"up": "demigodsanddemons:blocks/altar_top",
+		"down" : "demigodsanddemons:blocks/altar_bottom",
+		"north": "demigodsanddemons:blocks/altar_side",
+		"south": "demigodsanddemons:blocks/altar_side",
+		"west": "demigodsanddemons:blocks/altar_side",
+		"east": "demigodsanddemons:blocks/altar_side"
+	}
+}

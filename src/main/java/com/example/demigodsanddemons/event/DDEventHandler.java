@@ -24,7 +24,9 @@ public class DDEventHandler {
 
             }else{
 
+                //p.getEntityLiving().sendMessage();
                 p.getEntityLiving().attackEntityFrom(DamageSource.IN_FIRE, Float.MAX_VALUE);
+
 
 
             }

@@ -1,5 +1,8 @@
 package com.example.demigodsanddemons;
 
+import com.example.demigodsanddemons.block.DDBlocks;
+import com.example.demigodsanddemons.entity.DDTileEntities;
+import com.example.demigodsanddemons.item.DDItems;
 import com.example.demigodsanddemons.potion.DDEffects;
 import com.example.demigodsanddemons.registry.RegistryHandler;
 import com.example.demigodsanddemons.world.OreGeneration;
@@ -45,8 +48,12 @@ public class DemigodsAndDemons
         MinecraftForge.EVENT_BUS.register(this);
 
 
-        RegistryHandler.init();
         DDEffects.init();
+        DDBlocks.init();
+        DDTileEntities.init();
+        DDItems.init();
+        RegistryHandler.init();
+
     }
 
     private void setup(final FMLCommonSetupEvent event)

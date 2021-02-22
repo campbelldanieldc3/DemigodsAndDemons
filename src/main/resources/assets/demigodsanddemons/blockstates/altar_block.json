@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "demigodsanddemons:models/block/altar_model"
+      "model": "demigodsanddemons:block/altar_block"
     }
   }
 }

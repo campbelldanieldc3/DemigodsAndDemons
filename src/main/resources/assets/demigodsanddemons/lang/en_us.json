@@ -5,6 +5,7 @@
   "block.demigodsanddemons.azurite_ore" : "Azurite Ore",
   "block.demigodsanddemons.azurite_block": "Azurite Block",
   "block.demigodsanddemons.umbral_iron_block": "Umbral Iron Block",
+  "block.demigodsanddemons.altar_block": "Altar",
   "biome.demigodsanddemons.elderwood_forest":  "Elderwood Forest",
   "effect.demigodsanddemons.mortality": "Mortality"
 }
