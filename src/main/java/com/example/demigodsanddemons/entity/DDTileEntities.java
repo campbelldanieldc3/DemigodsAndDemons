@@ -18,7 +18,8 @@ public class DDTileEntities {
 
     public static final RegistryObject<TileEntityType<AltarTileEntity>> ANIMA_STORAGE_ENTITY = TILE_ENTITIES.register(
             "altar_tile_entity",
-            () -> TileEntityType.Builder.create(AltarTileEntity::new, DDBlocks.ALTAR_BLOCK.get()).build(null));
+            () -> TileEntityType.Builder.create(AltarTileEntity::new, DDBlocks.ALTAR_BLOCK.get()).build(null)
+    );
 
     public static void init(){
 

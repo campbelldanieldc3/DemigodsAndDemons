@@ -17,17 +17,14 @@ public class DDEventHandler {
 
         if(p.getPotionEffect().equals(new EffectInstance((DDEffects.MORTALITY.get())))){
 
-            // if entity is "immortal"
+            // If entity is considered "immortal"
             if(p.getEntityLiving().getTags().contains("Ascended")){
 
                 p.getEntityLiving().addPotionEffect(new EffectInstance(Effects.REGENERATION, 400, 1));
 
             }else{
 
-                //p.getEntityLiving().sendMessage();
                 p.getEntityLiving().attackEntityFrom(DamageSource.IN_FIRE, Float.MAX_VALUE);
-
-
 
             }
 

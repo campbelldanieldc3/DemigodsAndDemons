@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "xxx",
+    "xxx",
+    "xxx"
+  ],
+  "key": {
+    "x": {
+      "item": "demigodsanddemons:umbral_iron_ingot"
+    }
+  },
+  "result": {
+    "item": "demigodsanddemons:umbral_iron_block",
+    "count": 1
+  }
+}

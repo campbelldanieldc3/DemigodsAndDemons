@@ -1,10 +1,7 @@
 package com.example.demigodsanddemons.block;
 
 import com.example.demigodsanddemons.DemigodsAndDemons;
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.SoundType;
+import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraftforge.common.ToolType;
 import net.minecraftforge.fml.RegistryObject;
@@ -18,7 +15,8 @@ public class DDBlocks {
 
 
     public static final RegistryObject<Block> ALTAR_BLOCK = BLOCKS.register(
-            "altar_block", AltarBlock::new);
+            "altar_block", AltarBlock::new
+    );
 
     public static final RegistryObject<Block> AZURITE_ORE = BLOCKS.register(
             "azurite_ore", () -> new Block( AbstractBlock.Properties
@@ -48,6 +46,7 @@ public class DDBlocks {
     public static void init(){
 
         BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
+
 
     }
 
