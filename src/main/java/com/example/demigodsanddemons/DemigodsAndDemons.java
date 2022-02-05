@@ -1,6 +1,7 @@
 package com.example.demigodsanddemons;
 
 import com.example.demigodsanddemons.block.DDBlocks;
+import com.example.demigodsanddemons.container.DDContainerTypes;
 import com.example.demigodsanddemons.entity.DDTileEntities;
 import com.example.demigodsanddemons.item.DDItems;
 import com.example.demigodsanddemons.potion.DDEffects;
@@ -49,9 +50,11 @@ public class DemigodsAndDemons
 
 
         DDEffects.init();
+        DDContainerTypes.init();
         DDBlocks.init();
         DDTileEntities.init();
         DDItems.init();
+
         RegistryHandler.init();
 
     }
